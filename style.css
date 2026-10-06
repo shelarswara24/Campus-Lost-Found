@@ -1,0 +1,325 @@
+/* General Page Styling */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #dbeafe;
+    color: #222;
+}
+
+
+/* Navigation Bar */
+
+nav {
+    background-color: #173b57;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Home / Hero Section */
+
+/* BACKGROUND IMAGE IS INCLUDED HERE */
+
+.hero {
+    min-height: 500px;
+    background-color: #dbeafe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Dark layer over the college photo */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+}
+.hero-content {
+    position: relative;
+    color: white;
+    max-width: 700px;
+    padding: 30px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+    color:black;
+}
+
+.hero-content p {
+    font-size: 20px;
+    color:black;
+}
+
+
+/* Search Box */
+
+.search-box {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    background-color: #ffedd5;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.search-box input {
+    width: 450px;
+    padding: 14px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    font-size: 15px;
+}
+
+.search-box button {
+    padding: 14px 22px;
+    border: none;
+    background-color: #f0a500;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+}
+
+
+/* Buttons */
+
+button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #176b87;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #0f5269;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+/* Common Sections */
+
+.section {
+    padding: 55px 8%;
+}
+
+.section h2 {
+    text-align: center;
+    color: #173b57;
+    margin-bottom: 30px;
+}
+
+
+/* Item Cards */
+
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.item-card {
+    background-color: white;
+    width: 280px;
+    padding: 22px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.item-card h3 {
+    color: #173b57;
+    margin-top: 0;
+}
+
+.item-card p {
+    line-height: 1.5;
+}
+
+
+/* Status */
+
+.found {
+    color: green;
+    font-weight: bold;
+}
+
+.not-found {
+    color: #d62828;
+    font-weight: bold;
+}
+
+
+/* Report Form */
+
+form {
+    background-color: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+
+/* Photo Preview */
+
+#photoPreview {
+    display: none;
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    margin-top: 12px;
+    border-radius: 6px;
+}
+
+
+/* Privacy Box */
+
+.privacy-box {
+    background-color: #eef5f8;
+    padding: 15px;
+    margin-top: 20px;
+    border-left: 4px solid #176b87;
+    border-radius: 5px;
+}
+
+.privacy-box p {
+    margin: 6px 0;
+}
+
+
+/* My Reports */
+
+#myReports {
+    background-color: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Privacy Section */
+
+.privacy-section {
+    background-color: #e8f1f5;
+    text-align: center;
+    padding: 40px 10%;
+}
+
+.privacy-section h2 {
+    color: #173b57;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #173b57;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+
+/* Mobile View */
+
+@media (max-width: 700px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .search-box input {
+        width: 65%;
+    }
+
+    .section {
+        padding: 40px 5%;
+    }
+}

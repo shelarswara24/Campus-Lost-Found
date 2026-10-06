@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Lost & Found</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>Campus Lost & Found</h2>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#lost">Lost Items</a>
+            <a href="#found">Found Items</a>
+            <a href="#report">Report Item</a>
+            <a href="#reports">My Reports</a>
+        </div>
+    </nav>
+
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+       
+        <div class="hero-content">
+            <h1>Campus Lost & Found</h1>
+
+            <p>
+                Lost something? Found something?
+                Help it reach its owner.
+            </p>
+
+            <div class="search-box">
+                <input type="text" id="searchInput"
+                    placeholder="Search for an item...">
+
+                <button onclick="searchItems()">Search</button>
+            </div>
+
+            <div class="hero-buttons">
+                <button onclick="showSection('lost')">
+                    View Lost Items
+                </button>
+
+                <button onclick="showSection('found')">
+                    View Found Items
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Recent Items -->
+    <section class="section">
+
+        <h2>Recent Items</h2>
+
+        <div class="item-container">
+
+            <div class="item-card">
+                <h3>Black Wallet</h3>
+                <p>Category: Personal</p>
+                <p>Location: Library</p>
+
+                <p>
+                    Status:
+                    <span class="not-found">❌ Not Found</span>
+                </p>
+
+                <button onclick="viewDetails('Black Wallet')">
+                    View Details
+                </button>
+            </div>
+
+
+            <div class="item-card">
+                <h3>Water Bottle</h3>
+                <p>Category: Accessories</p>
+                <p>Location: Computer Lab</p>
+
+                <p>
+                    Status:
+                    <span class="found">✅ Found</span>
+                </p>
+
+                <button onclick="viewDetails('Water Bottle')">
+                    View Details
+                </button>
+            </div>
+
+
+            <div class="item-card">
+                <h3>Notebook</h3>
+                <p>Category: Stationery</p>
+                <p>Location: Classroom</p>
+
+                <p>
+                    Status:
+                    <span class="not-found">❌ Not Found</span>
+                </p>
+
+                <button onclick="viewDetails('Notebook')">
+                    View Details
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Lost Items -->
+    <section id="lost" class="section">
+
+        <h2>Lost Items</h2>
+
+        <div class="item-container">
+
+            <div class="item-card">
+
+                <h3>Black Wallet</h3>
+
+                <p>Location: Library</p>
+                <p>Date: 06 October 2026</p>
+                <p>Reported by: Swara</p>
+
+                <p>
+                    Status:
+                    <span class="not-found">❌ Not Found</span>
+                </p>
+
+                <button onclick="markFound(this)">
+                    I Found This
+                </button>
+
+            </div>
+
+
+            <div class="item-card">
+
+                <h3>Notebook</h3>
+
+                <p>Location: Classroom</p>
+                <p>Date: 05 October 2026</p>
+                <p>Reported by: Riya</p>
+
+                <p>
+                    Status:
+                    <span class="not-found">❌ Not Found</span>
+                </p>
+
+                <button onclick="markFound(this)">
+                    I Found This
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Found Items -->
+    <section id="found" class="section">
+
+        <h2>Found Items</h2>
+
+        <div class="item-container">
+
+            <div class="item-card">
+
+                <h3>Water Bottle</h3>
+
+                <p>Location: Computer Lab</p>
+                <p>Date: 06 October 2026</p>
+                <p>Found by: Karan</p>
+
+                <p>
+                    Status:
+                    <span class="found">✅ Found</span>
+                </p>
+
+                <button onclick="viewDetails('Water Bottle')">
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Report Item -->
+    <section id="report" class="section">
+
+        <h2>Report an Item</h2>
+
+        <form id="reportForm" onsubmit="addItem(event)">
+
+            <label>Report Type</label>
+
+            <select id="reportType" required>
+                <option value="">Select</option>
+                <option value="Lost">Lost Item</option>
+                <option value="Found">Found Item</option>
+            </select>
+
+
+            <label>Item Name</label>
+
+            <input type="text"
+                id="itemName"
+                placeholder="Enter item name"
+                required>
+
+
+            <label>Category</label>
+
+            <select id="category" required>
+
+                <option value="">Select category</option>
+                <option>Personal</option>
+                <option>Stationery</option>
+                <option>Accessories</option>
+                <option>Electronics</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>Location</label>
+
+            <input type="text"
+                id="location"
+                placeholder="Where was it lost/found?"
+                required>
+
+
+            <label>Date</label>
+
+            <input type="date"
+                id="itemDate"
+                required>
+
+
+            <label>Description</label>
+
+            <textarea id="description"
+                placeholder="Describe the item"
+                required></textarea>
+
+
+            <label>Upload Item Photo</label>
+
+            <input type="file"
+                id="itemPhoto"
+                accept="image/*"
+                onchange="previewPhoto(event)">
+
+            <img id="photoPreview"
+                alt="Photo Preview">
+
+
+            <div class="privacy-box">
+
+                <p><strong>Photo Guidelines</strong></p>
+
+                <p>
+                    Upload only the reported item.
+                    Do not upload photos of people,
+                    inappropriate content or private documents.
+                </p>
+
+                <label>
+                    <input type="checkbox"
+                        id="photoConfirm"
+                        required>
+
+                    I confirm that this photo contains only the item.
+                </label>
+
+            </div>
+
+
+            <button type="submit">
+                Submit Report
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- My Reports -->
+    <section id="reports" class="section">
+
+        <h2>My Reports</h2>
+
+        <div id="myReports">
+
+            <p>Your submitted reports will appear here.</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Privacy -->
+    <section class="privacy-section">
+
+        <h2>Privacy & Responsible Reporting</h2>
+
+        <p>
+            This website does not display phone numbers,
+            personal email addresses or other private contact information.
+        </p>
+
+        <p>
+            Users should upload only relevant item photos
+            and provide correct information.
+        </p>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>Campus Lost & Found | College Project</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
